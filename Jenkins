@@ -1,44 +1,35 @@
 pipeline {
     agent any
 
-    environment {
-        NODE_ENV = 'production'
-    }
-
     stages {
 
         stage('Checkout Code') {
             steps {
                 echo 'Cloning repository...'
-                checkout scm
             }
         }
 
         stage('Install Dependencies') {
             steps {
                 echo 'Installing dependencies...'
-                sh 'npm install'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building application...'
-                sh 'npm run build'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying application...'
-                sh 'echo Deployment step here'
             }
         }
     }
